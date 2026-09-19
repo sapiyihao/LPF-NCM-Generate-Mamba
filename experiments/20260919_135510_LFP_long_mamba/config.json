@@ -1,0 +1,11 @@
+{
+  "chemistry": "LFP",
+  "cache": "H:\\mamba\\code2\\data\\processed_v2",
+  "batch_size": 64,
+  "num_workers": 2,
+  "epochs": 12,
+  "learning_rate": 0.0003,
+  "seed": 42,
+  "model": "PyTorch selective SSM (Mamba-style, not official fused kernel)",
+  "smoke_test": false
+}

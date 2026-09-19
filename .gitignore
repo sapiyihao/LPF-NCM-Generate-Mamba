@@ -1,0 +1,4 @@
+data/processed_*/
+__pycache__/
+*.pyc
+experiments/
