@@ -1,0 +1,42 @@
+{
+  "synthetic_count": 256,
+  "real_train_windows_compared": 1321,
+  "physics_checks": {
+    "finite": true,
+    "voltage_order": true,
+    "temperature_order": true,
+    "voltage_spread_identity": true,
+    "lfp_voltage_bounds_2_to_4V": true,
+    "current_bounds_250A": true,
+    "temperature_bounds_minus20_to_80C": true
+  },
+  "quantile_gap_in_real_iqr": {
+    "mean_cell_voltage": 0.2944735410079451,
+    "max_cell_voltage": 0.08625084171287321,
+    "min_cell_voltage": 0.23164095219944134,
+    "pack_current": 0.18621945475546206,
+    "max_temperature": 0.44633954366048084,
+    "min_temperature": 0.5486797959348033,
+    "cell_voltage_spread": 0.1837043266417267
+  },
+  "temporal_derivative_ratio_to_real": {
+    "mean_cell_voltage": 1.183731023876028,
+    "max_cell_voltage": 1.1261526946055078,
+    "min_cell_voltage": 0.2415297121030642,
+    "pack_current": 0.72247835046888,
+    "max_temperature": 44.74713561177,
+    "min_temperature": 119.35468644350438,
+    "cell_voltage_spread": 0.736902124686093
+  },
+  "nearest_real_summary_distance_median": 49.03124409166737,
+  "nearest_real_summary_distance_p05": 15.92925562222841,
+  "quality_gate": {
+    "passes_basic_physics": true,
+    "passes_distribution": true,
+    "passes_temporal_dynamics": false,
+    "approved_for_classifier_training": false,
+    "note": "探索性筛选阈值；通过也不代表等同新采集的独立车辆"
+  },
+  "baseline_classifier_fraction_predict_high_resistance": 0.6953125,
+  "baseline_classifier_mean_high_resistance_probability": 0.6877537965774536
+}

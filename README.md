@@ -61,3 +61,12 @@ print(item['x'].shape, item['mask'].shape, item['label'])
 ## 首轮正式实验
 
 `experiments/20260919_135510_LFP_long_mamba/` 保存了 LFP 实验的配置、逐轮指标、最佳权重、结果图和摘要。随机种子42，12轮，验证车辆Macro-F1最佳为第8轮的0.893；独立测试75台车，准确率0.973、Macro-F1为0.954，其中15台故障车全部分对，2台正常车被误判为低容量。故障测试车辆每类仅4–6台，此成绩只是单次划分结果，需要多种子/多划分验证，不能当作稳健泛化结论。其他冒烟测试及未来实验默认由 `.gitignore` 排除，正式记录须明确选择后再纳入版本控制。
+
+## 高内阻合成样本试验
+
+`generate_high_resistance.py` 仅用 LFP 训练 VIN 中的正常与高内阻完整窗口，先在正常窗口上训练卷积 WGAN-GP，再迁移微调到高内阻窗口。它借鉴论文的两阶段迁移和 WGAN-GP，但**不是**论文的 991 点 LSTM GAN 复现。生成结果独立保存在 `synthetic/<时间戳>_LFP_high_resistance/`，不写入原始 CSV、`processed_v2` 或分类器训练集。每轮保存候选序列、生成器权重、训练损失、对比图和质量检查。`synthetic/` 默认忽略，只为两轮正式试验显式跟踪小体积配置、质量报告和图；大型候选样本与权重不推送。质量门槛不通过时，禁止把候选数据当作合格增强集使用。首轮结果详见 `AUGMENTATION_EXPERIMENTS.md`。
+
+```powershell
+python generate_high_resistance.py --smoke-test
+python generate_high_resistance.py --source-steps 1000 --target-steps 2000 --n-critic 5
+```

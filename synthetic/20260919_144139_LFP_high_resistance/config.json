@@ -1,0 +1,18 @@
+{
+  "cache": "H:\\mamba\\code2\\data\\processed_v2",
+  "split": "train_only",
+  "chemistry": "LFP",
+  "target_class": "high_resistance",
+  "source_vehicles": 280,
+  "target_vehicles": 21,
+  "source_windows": 2240,
+  "target_windows": 1321,
+  "source_steps": 1000,
+  "target_steps": 2000,
+  "batch_size": 32,
+  "n_critic": 5,
+  "generated": 256,
+  "seed": 42,
+  "smoke_test": false,
+  "method": "two-stage convolutional TL-WGAN-GP; paper-inspired, not exact LSTM reproduction"
+}
